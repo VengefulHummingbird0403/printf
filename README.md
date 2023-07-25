@@ -50,3 +50,19 @@ Additionally, the following conversion specifiers for integers will also be hand
 
 ## Example Usage
 
+```c
+#include "alx.h"
+
+int main(void)
+{
+    int len;
+
+    len = _printf("Hello, %s!\n", "world");
+    _printf("The number of characters printed is: %d\n", len);
+
+    _printf("%c\n", 'A');
+    _printf("%%\n");
+
+    return (0);
+}
+
