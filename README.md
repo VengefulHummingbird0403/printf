@@ -1,6 +1,15 @@
-# Printf project
-	- This is a collaborative project
-	- We will do our best
-	- Humphrey is working with Truth
-## I am currently in another branch called humph
-	- Humphrey created the branch
+# Custom `printf` function - ALX Project
+## Team Members
+- Humphrey Kinoti
+- Add your name
+
+## Table of Content
++ [Description](#description)
++ [Prototype](#prototype)
++ [Return Value](#return-value)
++ [Supported Conversion Specifiers](#supported-conversion-specifiers)
++ [Instructions](#instructions)
++ [Example Usage](#example-usage)
++ [Note](#note)
++ [Collaborators](#collaborators)
+
