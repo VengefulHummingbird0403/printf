@@ -22,12 +22,11 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			total_chars += print_arg(format[i], args);
+			print_arg(args, format, i, &total_chars);
 		}
 		else
 		{
-			write(1, &format[i], 1);
-			total_chars++;
+			total_chars += _putchar(format[i]);
 		}
 	}
 	va_end(args);
@@ -36,77 +35,72 @@ int _printf(const char *format, ...)
 
 /**
  * print_arg - prints the argument according to the format specifier
- * @specifier: the format specifier
+ * @format: the format string
  * @args: the list of arguments
+ * @i: iterator
+ * @char_count: counting printed values
  *
- * Return: the number of characters printed
+ * Return: nothing
  */
 
-int print_arg(char specifier, va_list args)
+void print_arg(va_list args, const char *format, int i, int *char_count)
 {
-	switch (specifier)
+	char par;
+	const char *par_str;
+
+	switch (format[i])
 	{
-		case 's':
-			return (print_string(args));
 		case 'c':
-			return (print_char(args));
+			par = va_arg(args, int);
+			(*char_count) += _putchar(par);
+			break;
+		case 's':
+			par_str = va_arg(args, const char *);
+			if (par_str == NULL)
+			{
+				(*char_count) += _puts("(null)");
+				return;
+			}
+			(*char_count) += _puts(par_str);
+			break;
 		case '%':
-			write(1, "%", 1);
-			return (1);
+			(*char_count) += _putchar('%');
+			break;
 		default:
-			write(1, &specifier, 1);
-			return (0);
+			(*char_count) += _putchar('%');
+			(*char_count) += _putchar(format[i]);
 	}
 }
 
 /**
- * _strlen - calculates the length
- * @s: a pointer used to access the memory address of the string passed
+ * _putchar - prints character
  *
- * Return: length of the string
+ * desc: character is being printed to standard output
+ *
+ * @c: character to be printed
+ *
+ * Return: the number of characters printed to standard output
+ * i.e 1
  */
-int _strlen(char *s)
+int _putchar(char c)
 {
-	int i = 0;
-
-	while (*s++)
-	{
-		i++;
-	}
-	return (i);
+	return (write(1, &c, 1));
 }
 
+
 /**
- * print_string - prints a string
- * @args: the argument list
- *
+ * _puts - custom puts
+ * @str: pointer to array of characters (string)
  * Return: number of characters printed
  */
 
-int print_string(va_list args)
+int _puts(const char *str)
 {
-	char *s = va_arg(args, char *);
+	int i = 0;
 
-	if (s == NULL)
-	{
-		write(1, "(null)", 6);
-		return (6);
-	}
-	write(1, s, _strlen(s));
-	return (_strlen(s));
+	for (; str[i] != '\0'; i++)
+		_putchar(str[i]);
+	/* _putchar('\n'); */
+	return (i);
 }
 
-/**
- * print_char - prints a character
- * @args: the argument list containing the character
- *
- * Return: the number of characters printed (1)
- */
-
-int print_char(va_list args)
-{
-	char c = va_arg(args, int);
-
-	write(1, &c, 1);
-	return (1);
-}
