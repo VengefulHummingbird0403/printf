@@ -42,7 +42,11 @@ Additionally, the following conversion specifiers for integers will also be hand
 
 ## Instructions
 
-1. Clone the repository from GitHub: [printf](https://github.com/amimanye/printf).
+1. Clone the repository from GitHub: [printf](https://github.com/VengefulHummingbird0403/printf.git).
 
-2. Implement the custom `_printf` function in the provided source files. You are required to handle the specified conversion specifiers: `%c`, `%s`, `%%`, `%d`, and `%i`.
+2. Implement the custom `_printf` function in the provided source files. You are required to handle the specified conversion specifiers: `%c`, `%s`, `%%`, `%d`, and `%i`
+
+3. Test your implementation with various test cases to ensure correctness and accuracy.
+
+## Example Usage
 
