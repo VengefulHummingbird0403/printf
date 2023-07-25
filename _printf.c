@@ -47,6 +47,7 @@ void print_arg(va_list args, const char *format, int i, int *char_count)
 {
 	char par;
 	const char *par_str;
+	int int_par;
 
 	switch (format[i])
 	{
@@ -66,6 +67,14 @@ void print_arg(va_list args, const char *format, int i, int *char_count)
 		case '%':
 			(*char_count) += _putchar('%');
 			break;
+		case 'd':
+			int_par = va_arg(args, int);
+			(*char_count) += print_num(int_par);
+			break;
+		case 'i':
+			int_par = va_arg(args, int);
+			(*char_count) += print_num(int_par);
+			break;
 		default:
 			(*char_count) += _putchar('%');
 			(*char_count) += _putchar(format[i]);
@@ -74,9 +83,6 @@ void print_arg(va_list args, const char *format, int i, int *char_count)
 
 /**
  * _putchar - prints character
- *
- * desc: character is being printed to standard output
- *
  * @c: character to be printed
  *
  * Return: the number of characters printed to standard output

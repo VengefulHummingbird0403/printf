@@ -11,4 +11,5 @@ int _printf(const char *format, ...);
 void print_arg(va_list args, const char *format, int i, int *char_count);
 int _putchar(char c);
 int _puts(const char *str);
+int print_num(int n);
 #endif
