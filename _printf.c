@@ -7,7 +7,7 @@
  * Return: number of characters printed, excluding the null byte
  */
 
-int _printf(const char *format ...)
+int _printf(const char *format, ...)
 {
 	int total_chars = 0;
 	int i;
