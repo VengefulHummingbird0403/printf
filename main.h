@@ -8,7 +8,8 @@
 
 
 int _printf(const char *format, ...);
-int print_arg(char specifier, va_list args);
-int print_char(va_list args);
-int print_string(va_list args);
+void print_arg(va_list args, const char *format, int i, int *char_count);
+int _putchar(char c);
+int _puts(const char *str);
+int print_num(int n);
 #endif
