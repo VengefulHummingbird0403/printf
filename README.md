@@ -13,3 +13,7 @@
 + [Note](#note)
 + [Collaborators](#collaborators)
 
+## Description
+
+This project aims to create a custom implementation of the `printf` function in C. The function will produce output according to a given format string, which can include conversion specifiers for characters, strings, and the percent symbol. The function will write the output to the standard output stream (stdout).
+
