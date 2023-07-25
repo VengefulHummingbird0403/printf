@@ -9,9 +9,9 @@
 
 int _printf(const char *format, ...)
 {
+	va_list args;
 	int total_chars = 0;
 	int i;
-	va_list args;
 
 	if (format == NULL)
 		return (-1);
@@ -19,15 +19,15 @@ int _printf(const char *format, ...)
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] != '%')
-		{
-			write(1, &format[i], 1);
-			total_chars++;
-		}
-		else
+		if (format[i] == '%')
 		{
 			format++;
 			total_chars += print_arg(format[i], args);
+		}
+		else
+		{
+			write(1, &format[i], 1);
+			total_chars++;
 		}
 	}
 	va_end(args);
@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 /**
  * print_arg - prints the argument according to the format specifier
  * @specifier: the format specifier
- * @args - the list of arguments
+ * @args: the list of arguments
  *
  * Return: the number of characters printed
  */
@@ -74,7 +74,6 @@ int print_string(va_list args)
 		write(1, "(null)", 6);
 		return (6);
 	}
-	
 	write(1, s, strlen(s));
 	return (strlen(s));
 }
