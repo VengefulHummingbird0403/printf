@@ -40,3 +40,9 @@ Additionally, the following conversion specifiers for integers will also be hand
 - `%d`: Print a signed integer.
 - `%i`: Print a signed integer.
 
+## Instructions
+
+1. Clone the repository from GitHub: [printf](https://github.com/amimanye/printf).
+
+2. Implement the custom `_printf` function in the provided source files. You are required to handle the specified conversion specifiers: `%c`, `%s`, `%%`, `%d`, and `%i`.
+
