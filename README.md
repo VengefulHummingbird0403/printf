@@ -1,7 +1,7 @@
 # Custom `printf` function - ALX Project
 ## Team Members
 - Humphrey Kinoti
-- Add your name
+- Onoh Truth Okechukwu
 
 ## Table of Content
 + [Description](#description)
