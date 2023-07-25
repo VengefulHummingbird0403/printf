@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			format++;
+			i++;
 			total_chars += print_arg(format[i], args);
 		}
 		else
@@ -52,10 +52,28 @@ int print_arg(char specifier, va_list args)
 			return (print_char(args));
 		case '%':
 			write(1, "%", 1);
-			return (-1);
+			return (1);
 		default:
+			write(1, &specifier, 1);
 			return (0);
 	}
+}
+
+/**
+ * _strlen - calculates the length
+ * @s: a pointer used to access the memory address of the string passed
+ *
+ * Return: length of the string
+ */
+int _strlen(char *s)
+{
+	int i = 0;
+
+	while (*s++)
+	{
+		i++;
+	}
+	return (i);
 }
 
 /**
@@ -74,8 +92,8 @@ int print_string(va_list args)
 		write(1, "(null)", 6);
 		return (6);
 	}
-	write(1, s, strlen(s));
-	return (strlen(s));
+	write(1, s, _strlen(s));
+	return (_strlen(s));
 }
 
 /**
