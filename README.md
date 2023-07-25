@@ -65,4 +65,12 @@ int main(void)
 
     return (0);
 }
+```
+
+## Note
+
+- The custom `printf` function does not need to handle flag characters, field width, precision, or length modifiers, as specified in the project instructions.
+
+- The buffer handling of the standard C library `printf` function does not need to be reproduced in this custom implementation.
+
 
