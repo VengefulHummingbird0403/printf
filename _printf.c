@@ -75,6 +75,10 @@ void print_arg(va_list args, const char *format, int i, int *char_count)
 			int_par = va_arg(args, int);
 			(*char_count) += print_num(int_par);
 			break;
+		case 'b':
+			int_par = va_arg(args, int);
+			(*char_count) += print_binary(int_par);
+			break;
 		default:
 			(*char_count) += _putchar('%');
 			(*char_count) += _putchar(format[i]);
